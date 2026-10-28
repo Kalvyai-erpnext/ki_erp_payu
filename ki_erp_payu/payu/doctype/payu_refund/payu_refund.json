@@ -1,0 +1,277 @@
+{
+ "actions": [],
+ "autoname": "PAYU-RFD-.#####",
+ "creation": "2026-10-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "payu_transaction",
+  "amount",
+  "refundable_amount",
+  "reason",
+  "credit_note",
+  "column_break_main",
+  "status",
+  "source",
+  "party_type",
+  "party",
+  "reference_doctype",
+  "reference_docname",
+  "payment_entry",
+  "payu_section",
+  "mihpayid",
+  "request_id",
+  "token",
+  "column_break_payu",
+  "payu_status",
+  "bank_ref_num",
+  "last_sync",
+  "message",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "payu_transaction",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "PayU Transaction",
+   "options": "PayU Transaction",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Refund Amount",
+   "options": "INR",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.docstatus === 0",
+   "fieldname": "refundable_amount",
+   "fieldtype": "Currency",
+   "is_virtual": 1,
+   "label": "Refundable Amount",
+   "options": "INR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "description": "Optional. The refund is allocated to this credit note (Sales Invoice return). Without one, it stays unallocated on the customer's account.",
+   "fieldname": "credit_note",
+   "fieldtype": "Link",
+   "label": "Credit Note",
+   "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Draft\nQueued\nSuccess\nFailed\nCancelled",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "ERPNext",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Requested From",
+   "no_copy": 1,
+   "options": "ERPNext\nPayU Dashboard",
+   "read_only": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "in_standard_filter": 1,
+   "label": "Party",
+   "options": "party_type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "payu_transaction.reference_doctype",
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "payu_transaction.reference_docname",
+   "fieldname": "reference_docname",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference",
+   "options": "reference_doctype",
+   "read_only": 1
+  },
+  {
+   "description": "Records the money paid back to the customer, once PayU confirms the refund.",
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Refund Payment Entry",
+   "no_copy": 1,
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payu_section",
+   "fieldtype": "Section Break",
+   "label": "PayU"
+  },
+  {
+   "fetch_from": "payu_transaction.mihpayid",
+   "fieldname": "mihpayid",
+   "fieldtype": "Data",
+   "label": "PayU ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "request_id",
+   "fieldtype": "Data",
+   "label": "PayU Request ID",
+   "no_copy": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Unique token sent with the refund request.",
+   "fieldname": "token",
+   "fieldtype": "Data",
+   "label": "Refund Token",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_payu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payu_status",
+   "fieldtype": "Data",
+   "label": "PayU Status",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_ref_num",
+   "fieldtype": "Data",
+   "label": "Bank Reference",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Checked with PayU",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "PayU Refund",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-10-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PayU",
+ "name": "PayU Refund",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Draft"
+  },
+  {
+   "color": "Orange",
+   "title": "Queued"
+  },
+  {
+   "color": "Green",
+   "title": "Success"
+  },
+  {
+   "color": "Red",
+   "title": "Failed"
+  },
+  {
+   "color": "Gray",
+   "title": "Cancelled"
+  }
+ ],
+ "track_changes": 1
+}

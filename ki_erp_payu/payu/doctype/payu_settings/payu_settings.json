@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "creation": "2026-10-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "credentials_section",
+  "environment",
+  "merchant_key",
+  "merchant_salt",
+  "column_break_credentials",
+  "credentials_help",
+  "checkout_section",
+  "default_phone",
+  "webshop_pay_button",
+  "webhook_section",
+  "webhook_url",
+  "refund_webhook_url",
+  "column_break_webhook",
+  "webhook_help"
+ ],
+ "fields": [
+  {
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break",
+   "label": "Credentials"
+  },
+  {
+   "default": "Sandbox",
+   "description": "Use Sandbox with test credentials, Production with live credentials.",
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Environment",
+   "options": "Sandbox\nProduction",
+   "reqd": 1
+  },
+  {
+   "fieldname": "merchant_key",
+   "fieldtype": "Data",
+   "label": "Merchant Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "merchant_salt",
+   "fieldtype": "Password",
+   "label": "Merchant Salt",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_credentials",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "credentials_help",
+   "fieldtype": "HTML",
+   "options": "<p class=\"text-muted small\">Find the Merchant Key and Salt in the PayU dashboard under <b>Developers → API Keys</b> (switch the dashboard to test mode for the Sandbox keys). Use the salt version 1 (\"Salt\").</p><p class=\"text-muted small\">Saving checks the keys with PayU and creates the <b>PayU</b> Payment Gateway Account for your default company.</p>"
+  },
+  {
+   "fieldname": "checkout_section",
+   "fieldtype": "Section Break",
+   "label": "Checkout"
+  },
+  {
+   "description": "PayU needs a mobile number for every payment. This number is used when the customer has none (Payment Request, contact on the order or invoice, or Customer).",
+   "fieldname": "default_phone",
+   "fieldtype": "Data",
+   "label": "Fallback Customer Mobile",
+   "options": "Phone"
+  },
+  {
+   "default": "1",
+   "description": "On the customer's order page of the Webshop, <i>Pay</i> opens the PayU checkout, even when the Webshop checkout uses another gateway (e.g. Cash on Delivery).",
+   "fieldname": "webshop_pay_button",
+   "fieldtype": "Check",
+   "label": "Use PayU for the Webshop Pay Button"
+  },
+  {
+   "fieldname": "webhook_section",
+   "fieldtype": "Section Break",
+   "label": "Webhooks"
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "Payment Webhook URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_webhook_url",
+   "fieldtype": "Data",
+   "label": "Refund Webhook URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_webhook",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "webhook_help",
+   "fieldtype": "HTML",
+   "options": "<p class=\"text-muted small\">In the PayU dashboard under <b>Developers → Webhooks</b>, add the <b>Payment Webhook URL</b> for the <i>Successful</i> and <i>Failed</i> payment events, and the <b>Refund Webhook URL</b> for the <i>Refund</i> event. PayU must reach your site over HTTPS. Without webhooks, payments are still checked when the customer returns and every 15 minutes.</p>"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PayU",
+ "name": "PayU Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

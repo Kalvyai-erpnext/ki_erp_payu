@@ -1,0 +1,253 @@
+{
+ "actions": [],
+ "autoname": "field:txnid",
+ "creation": "2026-10-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "txnid",
+  "status",
+  "amount",
+  "currency",
+  "column_break_main",
+  "reference_doctype",
+  "reference_docname",
+  "integration_request",
+  "payment_entry",
+  "refunded_amount",
+  "payu_section",
+  "mihpayid",
+  "payu_status",
+  "unmappedstatus",
+  "mode",
+  "column_break_payu",
+  "bank_ref_num",
+  "net_amount_debit",
+  "additional_charges",
+  "last_sync",
+  "message",
+  "redirect_to"
+ ],
+ "fields": [
+  {
+   "description": "The transaction ID sent to PayU (txnid). Each attempt to pay gets its own.",
+   "fieldname": "txnid",
+   "fieldtype": "Data",
+   "label": "Transaction ID",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "Initiated",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Initiated\nPending\nAuthorized\nSuccess\nFailed\nCancelled",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_docname",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reference",
+   "options": "reference_doctype",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "integration_request",
+   "fieldtype": "Link",
+   "label": "Integration Request",
+   "options": "Integration Request",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Payment Entry",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refunded_amount",
+   "fieldtype": "Currency",
+   "label": "Refunded Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payu_section",
+   "fieldtype": "Section Break",
+   "label": "PayU"
+  },
+  {
+   "fieldname": "mihpayid",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "PayU ID",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "payu_status",
+   "fieldtype": "Data",
+   "label": "PayU Status",
+   "read_only": 1
+  },
+  {
+   "description": "cancelled vs failed, authorised vs captured",
+   "fieldname": "unmappedstatus",
+   "fieldtype": "Data",
+   "label": "PayU Detailed Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mode",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Payment Method",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_payu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_ref_num",
+   "fieldtype": "Data",
+   "label": "Bank Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_amount_debit",
+   "fieldtype": "Currency",
+   "label": "Amount Debited by PayU",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "description": "Convenience fee added by PayU, if any.",
+   "fieldname": "additional_charges",
+   "fieldtype": "Currency",
+   "label": "Additional Charges",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Checked with PayU",
+   "read_only": 1
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "redirect_to",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Redirect To",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PayU",
+ "name": "PayU Transaction",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Initiated"
+  },
+  {
+   "color": "Orange",
+   "title": "Pending"
+  },
+  {
+   "color": "Blue",
+   "title": "Authorized"
+  },
+  {
+   "color": "Green",
+   "title": "Success"
+  },
+  {
+   "color": "Red",
+   "title": "Failed"
+  },
+  {
+   "color": "Gray",
+   "title": "Cancelled"
+  }
+ ],
+ "title_field": "reference_docname",
+ "track_changes": 1
+}
