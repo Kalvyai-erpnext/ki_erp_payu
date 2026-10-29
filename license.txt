@@ -1,21 +1,11 @@
-MIT License
+Copyright (c) 2026 kalvyai. All rights reserved.
 
-Copyright (c) 2026 kalvyai
+PayU Payments for ERPNext (ki_erp_payu) is proprietary software, licensed under
+the KalvyAI Software Licence Agreement. Use is permitted only to holders of a
+valid licence purchased from KalvyAI (https://store.kalvyai.com), within the
+terms of that agreement.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+You may not copy, modify, distribute, sublicense or sell this software, in
+whole or in part, except as the KalvyAI Software Licence Agreement allows.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Contact: kalvyai.admin@gmail.com

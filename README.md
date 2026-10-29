@@ -80,4 +80,4 @@ bench --site <site> run-tests --app ki_erp_payu
 
 ### License
 
-MIT
+Proprietary: KalvyAI Software Licence Agreement. See `license.txt`.
