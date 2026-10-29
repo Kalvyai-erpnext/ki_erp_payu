@@ -1,6 +1,6 @@
 ### PayU Payments for ERPNext
 
-Technical name: `ki_erp_payu` · ERPNext v15 / v16 · by kalvyai
+Technical name: `ki_erp_payu` · ERPNext v16 · by kalvyai
 
 Customers pay Payment Requests (from Sales Orders, Sales Invoices or the Webshop cart) on the PayU
 India hosted checkout: UPI, cards, net banking, wallets, EMI and pay later. The Payment Entry is
