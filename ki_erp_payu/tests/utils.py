@@ -13,7 +13,7 @@ from ki_erp_payu.client import PayUClient
 from ki_erp_payu.processing import prepare_checkout
 
 # Demo data of the development site
-COMPANY = "Kalvy Demo"
+COMPANY = "Kalvyai Demo"
 CUSTOMER = "Rahul Sharma"
 ITEM = "TSHIRT-001"
 WAREHOUSE = "Stores - KD"
